@@ -1,0 +1,17 @@
+:root{
+    /* ===== TIPOGRAFIA ===== */
+    --font-titles: 'Roboto Slab', serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* ===== TAMANOS DE FUENTES ===== */
+    --font-size-title1: 4rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    max-width: 10%;
+}
