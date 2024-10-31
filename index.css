@@ -17,16 +17,17 @@
   --fw-bold: 700;
 
   /* ===== COLORES ===== */
-  --color-background: #f5e6d3;
-  --color-title: #2b4570;
-  --color-subtitle: #a63d40;
-  --color-text: #4a4a4a;
-  --color-button: #5e88fc;
-  --color-accent: #e9b44c;
+  --color-background: #f8f9fc;
+  --color-primary: #2d3b55;
+  --color-secondary: #4b6bfb;
+  --color-text: #1a1b1f;
+  --color-textSecondary: #6b7280;
+  --color-accent: #00d4ff;
+  --color-surface: #ffffff;
 
   /*  estados de botones  */
   --color-button-hover: #4a77fb;
-  --color-accent-hover: #d69a3d;
+  --color-accent-hover: #1261f3;
   --color-accent-hover2: #f2c94c;
 
   /* ===== LAYOUT ===== */
@@ -62,7 +63,7 @@ header {
   height: var(--header-height);
   display: flex;
   justify-content: center;
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
 }
 
 nav {
@@ -79,8 +80,8 @@ nav {
   padding: 0.8rem;
   max-width: 12rem;
   height: auto;
+  fill: var(--color-surface);
 }
-
 .menu {
   padding: 0.8rem 1rem;
 }
@@ -90,15 +91,16 @@ nav {
   gap: 4rem;
   list-style: none;
   font-size: var(--font-size-subtitle);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-regular);
 
   a {
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--color-surface);
+    font-family: var(--font-titles);
   }
 
   a:hover {
-    color: var(--color-accent-hover2); /*TODO: VERIFICAR EL COLOR DEL HOVER*/
+    color: var(--color-secondary);
   }
 }
 
@@ -110,9 +112,10 @@ nav {
   .iconify {
     font-size: var(--font-size-title);
     vertical-align: middle;
+    color: var(--color-surface);
 
     &:hover {
-      color: var(--color-accent-hover2);
+      color: var(--color-secondary);
     }
   }
 }
@@ -124,19 +127,35 @@ main {
 }
 
 /*  BANNER  */
-.banner-img{
-    width: 100%;
-    height: 25rem;
-    background-color: #d5bcbc;
-    font-size: var(--font-size-title);
-    text-align: center;
-    align-content: center;
+
+.banner-container {
+  width: 100%;
+  height: 40rem;
+  overflow: hidden;
+}
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 div {
-  width: 2rem;
-  height: 1rem;
-  background-color: var(--color-subtitle);
+  width: 20rem;
+  height: 10rem;
+  background-color: var(--color-accent-hover2);
+}
+
+/*  FOOTER  */
+
+footer {
+  margin-top: 2rem;
+  height: 16rem;
+
+  .footer-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+  }
 }
 
 /* PALETA DE COLORES:

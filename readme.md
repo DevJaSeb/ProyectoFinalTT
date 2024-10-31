@@ -3,7 +3,8 @@
 
 ## Funcionalidades
 
-- Enumerar las funcionalidades
+- Comunicacion con API https://dummyjson.com para obtener articulos
+- Simulacion de Navegacion interna entre las paginas de Home, Productos, Contacto
 
 ## Tecnologias Utilizadas
 
@@ -17,5 +18,3 @@
 
 ## TODO
 - Crear un formulario de contacto con Formspree
-- Incluir al menos un elemento multimedia
-- Lista desordenada que simule la navegacion interna de la pagina Inicio/Productos/Contacto
