@@ -25,6 +25,7 @@
   --color-textSecondary: #6b7280;
   --color-accent: #00d4ff;
   --color-surface: #ffffff;
+  --color-price:#020874;
 
   /*  estados de botones  */
   --color-button-hover: #4a77fb;
@@ -141,6 +142,100 @@ main {
 }
 
 /*  CONTENIDO  */
+.container-body {
+  display: flex;
+  justify-content: center;
+}
+.cards-container {
+  width: 130rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: var(--color-surface);
+
+    .card-title {
+      font-size: var(--font-size-subtitle);
+      font-weight: var(--fw-bold);
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .img-container {
+      width: 20rem;
+      height: 25rem;
+      overflow: hidden;
+      margin: 0 2rem 0 2rem;
+      align-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .card-description {
+      font-size: var(--font-size-xsmall);
+      margin-bottom:3rem;
+
+      a{
+        color: var(--color-secondary);
+        text-decoration: none;
+
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    .card-price{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 25rem;
+      gap: 1rem;
+      font-size: var(--font-size-subtitle);
+      font-weight: var(--fw-semi-bold);
+
+      p{
+        color: var(--color-price);
+        margin-bottom: 1.5rem;
+      }
+
+      button{
+        color: var(--color-text);
+        background-color: var(--color-secondary);
+        border: 0.1rem solid var(--color-secondary);
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        font-size: var(--font-size-small);
+        font-weight: var(--fw-semi-bold);
+        cursor: pointer;
+        margin-bottom: 1rem;
+
+        &:hover{
+          background-color: var(--color-button-hover);
+          border: 0.1rem solid var(--color-button-hover);
+        }
+      }
+    }
+  }
+}
 
 /*  FOOTER  */
 
