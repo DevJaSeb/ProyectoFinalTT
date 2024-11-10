@@ -1,13 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyecto TT E-commerce</title>
-</head>
-<body>
-    <h1>Producto</h1>
-    <button type="button"><a href="../index.html">Volver</a></button>
-    
-</body>
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="./styles/producto.css" />
+    <!-- ICONS -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- Logo -->
+
+        <img class="img-logo" src="../resources/img/path1.svg" alt="Logo JS" />
+
+        <!-- Menu -->
+
+        <section class="menu">
+          <ul class="menu-list">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./contacto.html">Contacto</a></li>
+          </ul>
+        </section>
+
+        <!-- Iconos -->
+
+        <section class="icons-container">
+          <!-- <input type="text" class="search-input" placeholder="Buscar..." /> -->
+          <span
+            class="iconify search"
+            data-icon="material-symbols:search"
+          ></span>
+          <span
+            class="iconify cart"
+            data-icon="material-symbols:shopping-cart"
+          ></span>
+        </section>
+      </nav>
+    </header>
+    <main>
+      <h1>Producto</h1>
+      <button type="button"><a href="../index.html">Volver</a></button>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+          <section class="footer-social">
+            <img class="img-logo" src="../resources/img/path1.svg" alt="Logo JS" />
+            <div class="footer-social-icons">
+              <span class="iconify" data-icon="mdi:facebook"></span>
+              <span class="iconify" data-icon="mdi:instagram"></span>
+              <span class="iconify" data-icon="line-md:twitter-x"></span>
+              <span class="iconify" data-icon="ic:baseline-tiktok"></span>
+            </div>
+            <p class="footer-copyright">
+              &copy; 2024 DevJaseb - Todos los derechos reservados
+            </p>
+          </section>
+          <section class="footer-menu">
+            <ul class="footer-menu-list">
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="./productos.html">Productos</a></li>
+              <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+          </section>
+          <section class="footer-payments">
+            <p>Terminos y Condiciones</p>
+            <div class="footer-payments-icons">
+              <span class="iconify" data-icon="simple-icons:mercadopago"></span>
+              <span class="iconify" data-icon="simple-icons:visa"></span>
+              <span class="iconify" data-icon="lineicons:mastercard"></span>
+            </div>
+          </section>
+        </div>
+      </footer>
+  </body>
 </html>
