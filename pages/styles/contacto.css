@@ -1,4 +1,52 @@
-form{
-    display: flex;
-    flex-direction: column;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  width: 60rem;
+  height: 75rem;
+  margin: 2rem auto 0 auto;
+  background-color:  #4B6BFB80
 }
+
+.form-container form, .header-form {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .form-container input,
+  .form-container textarea,
+  .form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }  
+  .form-container button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-container label[for="checkbox"] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .form-container select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px;
+  }

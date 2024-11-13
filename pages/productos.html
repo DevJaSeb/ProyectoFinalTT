@@ -50,22 +50,68 @@
       </nav>
     </header>
     <main>
-      <h1>Productos</h1>
       <!-- FILTROS -->
       <aside>
-
+        <div class="search-filter">
+          <p>Buscar</p>
+          <input type="text" />
+        </div>
+        <div class="order-filter">
+          <p>Ordenar por</p>
+          <select name="order" id="order">
+            <option value="asc">Menor precio</option>
+            <option value="desc">Mayor precio</option>
+          </select>
+        </div>
+        <div class="price-filter">
+          <p>Precio</p>
+          <input type="text" />
+          <input type="text" />
+        </div>
+        <div class="checkbox-filter">
+          <p>Filtrar</p>
+          <input type="checkbox" name="new" id="new" value="new" />
+          <label for="new">Novedad</label>
+          <input
+            type="checkbox"
+            name="ofer"
+            id="ofer"
+            value="ofer"
+          />
+          <label for="ofer">Oferta</label>
+          <input type="checkbox" name="desc" id="desc" value="desc" />
+          <label for="desc">Descuento</label>
+        </div>
       </aside>
       <!-- PRODUCTOS -->
-      <section>
-
+      <section class="cards-container">
+        <div class="card">
+          <p class="card-title">Apple Airpods Max Silver</p>
+          <div class="img-container">
+            <img
+              src="../resources/img/imgPrueba.png"
+              alt="Apple Airpods Max Silver"
+            />
+          </div>
+          <p class="card-description">
+            <a href="./pages/producto.html">Detalles</a>
+          </p>
+          <div class="card-price">
+            <p>$ 10.000</p>
+            <button>Comprar</button>
+          </div>
+        </div>
       </section>
-      <button type="button"><a href="../index.html">Volver</a></button>
     </main>
     <!-- Footer -->
     <footer>
       <div class="footer-container">
         <section class="footer-social">
-          <img class="img-logo" src="../resources/img/path1.svg" alt="Logo JS" />
+          <img
+            class="img-logo"
+            src="../resources/img/path1.svg"
+            alt="Logo JS"
+          />
           <div class="footer-social-icons">
             <span class="iconify" data-icon="mdi:facebook"></span>
             <span class="iconify" data-icon="mdi:instagram"></span>
