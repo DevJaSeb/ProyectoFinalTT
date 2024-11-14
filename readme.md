@@ -1,5 +1,6 @@
 # PROYECTO FINAL TALENTO TECH JS
->Aplicacion de un e-commerce desarrollado con html, css y js.
+
+> Aplicacion de un e-commerce desarrollado con html, css y js.
 
 ## Funcionalidades
 
@@ -10,11 +11,13 @@
 
 - Html
 - Css
+- Git
 - Javascript
 
 ## Configuracion del Proyecto
 
-- Clona el repositorio: 
+- Clona el repositorio:
 
 ## TODO
+
 - crear seccion reseñas con grid
