@@ -17,4 +17,4 @@
 - Clona el repositorio: 
 
 ## TODO
-- Crear un formulario de contacto con Formspree
+- crear seccion reseñas con grid

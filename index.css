@@ -152,6 +152,8 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 2rem;
+  
 
   .card {
     display: flex;
@@ -162,6 +164,7 @@ main {
     margin: 1rem;
     border-radius: 1rem;
     background-color: var(--color-surface);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 
     .card-title {
       font-size: var(--font-size-subtitle);
