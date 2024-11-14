@@ -6,47 +6,69 @@
   width: 60rem;
   height: 75rem;
   margin: 2rem auto 0 auto;
-  background-color:  #4B6BFB80
+  background-color: #4b6bfb80;
 }
 
-.form-container form, .header-form {
-    width: 60%;
-    margin: 0 auto;
-  }
+.form-title {
+  font-size: var(--font-size-title);
+  font-family: var(--font-titles);
+}
 
-  .form-container input,
-  .form-container textarea,
-  .form-container select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }  
-  .form-container button {
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .form-container label[for="checkbox"] {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-container input[type="checkbox"] {
-    margin-right: 10px;
-  }
+.header-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-  .form-container select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 24px;
-  }
+.form-container form,
+.header-form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+input {
+  margin-top: 0.5rem;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-container button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.form-container select {
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 24px;
+  margin-top: 1rem;
+}
+
+.form-container .checkbox-container {
+  display: flex;
+  width: auto;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.form-container .checkbox-container input[type='checkbox'] {
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.form-container .checkbox-container label {
+ margin-top: 0.5rem;
+}

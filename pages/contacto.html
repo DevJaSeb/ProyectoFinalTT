@@ -55,7 +55,7 @@
 
       <div class="form-container">
         <div class="header-form">
-          <h2>Contactanos</h2>
+          <h2 class="form-title">Contactanos</h2>
           <p>Comuniquese y nos pondremos en contacto en 24 horas</p>
         </div>
         <form action="https://formspree.io/f/mldejeok" method="post">
@@ -76,10 +76,11 @@
           <input type="text" id="subject" name="subject" />
           <label for="message">Mensaje</label>
           <textarea id="message" name="message"></textarea>
-          <label for="checkbox"
-            ><input type="checkbox" id="checkbox" />Acepto terminos y
-            condiciones</label
-          >
+          <div class="checkbox-container">
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox">Acepto terminos y condiciones</label>
+            
+          </div>
           <button type="submit">Enviar</button>
         </form>
       </div>
