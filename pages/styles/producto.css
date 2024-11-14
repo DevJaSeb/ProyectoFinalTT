@@ -1,0 +1,121 @@
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.product{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    max-width: 120rem;
+    max-height:60rem ;
+}
+
+.img-container{
+    display: flex;
+    max-width: 45rem;
+    max-height: 60rem;
+    overflow: hidden;
+    padding: 3rem;
+
+    img{
+        width: 80%;
+        height: 90%;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+}
+
+.description-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;    
+    gap: 2.5rem;
+    max-width: 45rem;
+    max-height: 60rem;
+    padding: 3rem;
+    background-color: var(--color-surface);
+}
+
+.product-title{
+    font-size: var(--font-size-title);
+    font-family: var(--font-titles);
+    text-align: center;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.product-description{
+    font-size: var(--font-size-body);
+    font-weight: var(--fw-regular);
+    text-align: start;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.product-price{
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--fw-bold);
+    font-family: var(--font-titles);
+    color: var(--color-price);
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-body);
+    margin-bottom: 0.8rem;
+}
+
+.count{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.button-down, .button-up{
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+}
+
+.number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    
+}
+
+.add-to-cart{
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    width: 16rem;
+    height: 4rem;
+    font-size: var(--font-size-body);
+    font-family: var(--font-titles);
+}
