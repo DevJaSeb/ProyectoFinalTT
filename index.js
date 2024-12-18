@@ -1,5 +1,5 @@
 //Punto de entrada para la aplicación
 
-import { getProducts } from "./src/requests.js";
+import { getProducts, getAllProducts } from './src/requests.js'
 
-getProducts();
+getAllProducts().then((response) => console.log(response))
