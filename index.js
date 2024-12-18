@@ -1,5 +1,6 @@
 //Punto de entrada para la aplicación
 
-import { getProducts, getAllProducts } from './src/requests.js'
+import { bannerInit } from './src/dom.js'
 
-getAllProducts().then((response) => console.log(response))
+//iniciamos el banner
+document.addEventListener('DOMContentLoaded', bannerInit)
