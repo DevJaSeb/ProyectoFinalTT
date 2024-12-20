@@ -25,7 +25,7 @@
   --color-textSecondary: #6b7280;
   --color-accent: #00d4ff;
   --color-surface: #ffffff;
-  --color-price:#020874;
+  --color-price: #020874;
 
   /*  estados de botones  */
   --color-button-hover: #4a77fb;
@@ -110,18 +110,40 @@ nav {
   display: flex;
   gap: 3.6rem;
   padding: 0.8rem 0.5rem;
+  position: relative;
 
   .iconify {
     font-size: var(--font-size-title);
     vertical-align: middle;
     color: var(--color-surface);
+    cursor: pointer;
+    transition: color 0.3s ease;
 
     &:hover {
       color: var(--color-secondary);
     }
   }
-}
 
+  .search-input {
+    position: absolute;
+    right: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    background-color: white;
+  }
+
+  .search-input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+    margin-right: 8px;
+  }
+}
 /*  BODY    */
 
 main {
@@ -156,7 +178,6 @@ main {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 2rem;
-  
 
   .card {
     display: flex;
@@ -197,9 +218,9 @@ main {
 
     .card-description {
       font-size: var(--font-size-xsmall);
-      margin-bottom:3rem;
+      margin-bottom: 3rem;
 
-      a{
+      a {
         color: var(--color-secondary);
         text-decoration: none;
 
@@ -209,7 +230,7 @@ main {
       }
     }
 
-    .card-price{
+    .card-price {
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -218,12 +239,12 @@ main {
       font-size: var(--font-size-subtitle);
       font-weight: var(--fw-semi-bold);
 
-      p{
+      p {
         color: var(--color-price);
         margin-bottom: 1.5rem;
       }
 
-      button{
+      button {
         color: var(--color-text);
         background-color: var(--color-secondary);
         border: 0.1rem solid var(--color-secondary);
@@ -234,7 +255,7 @@ main {
         cursor: pointer;
         margin-bottom: 1rem;
 
-        &:hover{
+        &:hover {
           background-color: var(--color-button-hover);
           border: 0.1rem solid var(--color-button-hover);
         }
