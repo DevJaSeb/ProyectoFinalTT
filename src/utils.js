@@ -30,7 +30,7 @@ export const createProductCard = (product) => {
                 alt="${product.title}"
               />
             </div>
-            <p class="card-description"><a href="./pages/producto.html">Detalles</a></p>
+            <p class="card-description"><a href="./pages/producto.html?id=${product.id}">Detalles</a></p>
             <div class="card-price">
               <p>$ ${product.price}</p>
               <button>Comprar</button>`

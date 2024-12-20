@@ -1,5 +1,5 @@
 //Encargado de realizar las peticiones a la API
-
+const BASE_URL = 'https://dummyjson.com/products'
 const API_URL = 'https://dummyjson.com/products/category'
 const CATEGORIES = ['laptops', 'mobile-accessories', 'smartphones', 'tablets']
 
@@ -29,8 +29,6 @@ export const getProducts = async (category) => {
   try {
     const url = `${API_URL}/${category}`
     const response = await fetch(url)
-    console.log(response);
-    
 
     if (!response.ok) {
       throw new Error(`Error en la solicitud para ${category}`)
@@ -42,12 +40,22 @@ export const getProducts = async (category) => {
   }
 }
 
+//FUNCION PARA OBENER LOS PRODUCTOS POR CATEGORIA
+export const getProductsById = async (id) =>{
+  try{
+    const response = await fetch(`${BASE_URL}/${id}`)
+    const data = await response.json()
+    return data
+  }catch(error){
+    console.error('Error al Obtener los productos', error)
+  }
+}
+
 //Funcion para obtener las imagenes para el banner
 export const getBannerImages = async (count = 5) => {
   try {
     const allProducts = await getAllProducts()
-    console.log(allProducts);
-    
+
     const flatProducts = allProducts.flatMap(
       (categoryProducts) => categoryProducts
     )
