@@ -29,6 +29,8 @@ export const getProducts = async (category) => {
   try {
     const url = `${API_URL}/${category}`
     const response = await fetch(url)
+    console.log(response);
+    
 
     if (!response.ok) {
       throw new Error(`Error en la solicitud para ${category}`)
@@ -44,6 +46,8 @@ export const getProducts = async (category) => {
 export const getBannerImages = async (count = 5) => {
   try {
     const allProducts = await getAllProducts()
+    console.log(allProducts);
+    
     const flatProducts = allProducts.flatMap(
       (categoryProducts) => categoryProducts
     )

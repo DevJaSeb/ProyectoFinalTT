@@ -1,8 +1,13 @@
 //Opcional: funcionalidades compartidas
 
-//FUNCION PARA APLANAR ARRAY DE ARRAYS
+//FUNCION PARA APLANAR y TRANSFORMAR ARRAY DE ARRAYS
 export const flatternArray = (array) => {
   return array.flatMap((subarray) => subarray)
+}
+
+//FUNCION PARA APLANAR ARRAYS
+export const flatArray = (array) => {
+  return array.flat()
 }
 
 //OBTENER ITEMS ALEATORIOS

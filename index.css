@@ -184,6 +184,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 35rem;
     padding: 1rem;
     margin: 1rem;
     border-radius: 1rem;
