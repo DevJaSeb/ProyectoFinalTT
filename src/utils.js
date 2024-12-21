@@ -38,3 +38,32 @@ export const validateForm = () => {
   })
 }
 
+//INSERTAR CARRITO DE COMPRAS EN TODAS LAS PAGINAS
+export const insertCartHtml = () => {
+  const cartHtml = `
+  <!-- MODAL CARRITO -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-modal-content">
+        <div class="cart-modal-header">
+          <h2>Carrito de Compras</h2>
+          <span class="close-modal iconify" data-icon="material-symbols:close"
+            >&times;</span
+          >
+        </div>
+        <div class="cart-items-container">
+          <!-- Aquí se mostrarán los items del carrito -->
+        </div>
+        <div class="cart-modal-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="btn-checkout">Realizar Compra</button>
+          <button class="clear-cart">Vaciar Carrito</button>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', cartHtml);
+}
+

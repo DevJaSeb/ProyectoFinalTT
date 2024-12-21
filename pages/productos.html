@@ -143,11 +143,13 @@
       import { getAllProducts } from '../src/requests.js';
       import { createProductCard } from '../src/products.js';
       import { initCart } from '../src/cart.js';
+      import { insertCartHtml } from '../src/utils.js';
       const initProducts = async () => {
         try{
           const products = await getAllProducts()
           const flatProducts = products.flat().filter(Boolean);
           flatProducts.forEach( product => createProductCard(product))
+          insertCartHtml()
           initCart()
         }catch(error){
           console.error('Error al Obtener los productos', error)

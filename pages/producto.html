@@ -116,8 +116,14 @@
     </footer>
     <script type="module">
       import { initProductsDetails } from '../src/products.js';
+      import { initCart } from '../src/cart.js';
+      import { insertCartHtml } from '../src/utils.js';
 
-      document.addEventListener('DOMContentLoaded', initProductsDetails);
+      document.addEventListener('DOMContentLoaded',() => {
+        initProductsDetails();        
+        insertCartHtml()
+        initCart()
+      });
   </script>
   </body>
 </html>
