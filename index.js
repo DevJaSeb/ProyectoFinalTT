@@ -7,13 +7,13 @@ import { getAllProducts } from './src/requests.js'
 
 
 const init = async () => {
-    try{
-        initCart()
+    try{        
         await bannerInit()
         initSearch()
         const products = await getAllProducts();
         const flatProducts = products.flat().filter(Boolean);
         flatProducts.forEach(product => createProductCard(product))
+        initCart()
     }catch(error){
         console.error('Error al Obtener los productos', error)
     }
