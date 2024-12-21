@@ -52,10 +52,3 @@ export const initSearch = () => {
     }
   })
 }
-
-//CARRO DE COMPRAS
-const cartIcon = document.querySelector('.cart');
-const cartModal = document.querySelector('.cart-modal');  
-const closeModal = document.querySelector('.close-modal');
-const cartItemsContainer = document.querySelector('.cart-items-container');
-const cartTotal = document.querySelector('#cartTotal');

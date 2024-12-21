@@ -58,22 +58,22 @@ export const updateQuantity = (productId, newQuantity) => {
 
 //Funcion para actualizar la UI del carrito
 const updateCartUI = () => {
-    const cartItemsContainer = document.querySelector('.cart-items-container');
-    const cartCount = document.querySelector('.cart-count');
-    
-    // Update cart items count
-    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    if (cartCount) {
-      cartCount.textContent = totalItems;
-      cartCount.style.display = totalItems > 0 ? 'block' : 'none';
-    }
-  
-    cartItemsContainer.innerHTML = '';
-    
-    cartItems.forEach(item => {
-      const cartItem = document.createElement('div');
-      cartItem.classList.add('cart-item');
-      cartItem.innerHTML = `
+  const cartItemsContainer = document.querySelector('.cart-items-container')
+  const cartCount = document.querySelector('.cart-count')
+
+  // actualizar los items del carrito
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+  if (cartCount) {
+    cartCount.textContent = totalItems
+    cartCount.style.display = totalItems > 0 ? 'block' : 'none'
+  }
+
+  cartItemsContainer.innerHTML = ''
+
+  cartItems.forEach((item) => {
+    const cartItem = document.createElement('div')
+    cartItem.classList.add('cart-item')
+    cartItem.innerHTML = `
         <img src="${item.thumbnail}" alt="${item.title}" class="cart-item-img">
         <div class="cart-item-info">
           <h3>${item.title}</h3>
@@ -83,100 +83,102 @@ const updateCartUI = () => {
             <span class="quantity">${item.quantity}</span>
             <button class="quantity-btn plus" data-id="${item.id}">+</button>
           </div>
-          <p class="item-total">Subtotal: $${(item.price * item.quantity).toFixed(2)}</p>
+          <p class="item-total">Subtotal: $${(
+            item.price * item.quantity
+          ).toFixed(2)}</p>
         </div>
         <button class="remove-item" data-id="${item.id}">
           <i class="fas fa-trash"></i>
         </button>
-      `;
-      cartItemsContainer.appendChild(cartItem);
-    });
-  
-    // Add event listeners to buttons
-    document.querySelectorAll('.remove-item').forEach(button => {
-      button.addEventListener('click', (e) => {
-        removeFromCart(Number(e.currentTarget.dataset.id));
-      });
-    });
-  
-    document.querySelectorAll('.quantity-btn').forEach(button => {
-      button.addEventListener('click', (e) => {
-        const productId = Number(e.currentTarget.dataset.id);
-        const item = cartItems.find(item => item.id === productId);
-        if (item) {
-          const newQuantity = e.currentTarget.classList.contains('plus') 
-            ? item.quantity + 1 
-            : item.quantity - 1;
-          updateQuantity(productId, newQuantity);
-        }
-      });
-    });
-  }
+      `
+    cartItemsContainer.appendChild(cartItem)
+  })
+
+  // Añadimos los listenes para los botones
+  document.querySelectorAll('.remove-item').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      removeFromCart(Number(e.currentTarget.dataset.id))
+    })
+  })
+
+  document.querySelectorAll('.quantity-btn').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const productId = Number(e.currentTarget.dataset.id)
+      const item = cartItems.find((item) => item.id === productId)
+      if (item) {
+        const newQuantity = e.currentTarget.classList.contains('plus')
+          ? item.quantity + 1
+          : item.quantity - 1
+        updateQuantity(productId, newQuantity)
+      }
+    })
+  })
+}
 
 //evento para el boton remove item
-document.querySelectorAll('.remove-item').forEach(button => {
-    button.addEventListener('click', (e) => {
-      removeFromCart(Number(e.currentTarget.dataset.id));
-    });
-  });
+document.querySelectorAll('.remove-item').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    removeFromCart(Number(e.currentTarget.dataset.id))
+  })
+})
 
-  document.querySelectorAll('.quantity-btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const productId = Number(e.currentTarget.dataset.id);
-      const item = cartItems.find(item => item.id === productId);
-      if (item) {
-        const newQuantity = e.currentTarget.classList.contains('plus') 
-          ? item.quantity + 1 
-          : item.quantity - 1;
-        updateQuantity(productId, newQuantity);
-      }
-    });
-  });
-
-
-  //Funcion para actualizar el total del carrito
-  const updateCartTotal = () => {
-    const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const cartTotal = document.querySelector('#cartTotal');
-    cartTotal.textContent = `$${total.toFixed(2)}`;
-  }
-
-  // Funcion para limpiar el carrito
-export const clearCart = () => {
-    cartItems = [];
-    savedCartToStorage();
-    updateCartUI();
-    updateCartTotal();
-  }
-
-  // Function to initialize cart modal
-export const initCart = () => {
-    const cartIcon = document.querySelector('.cart');
-    const cartModal = document.querySelector('.cart-modal');
-    const closeModal = document.querySelector('.close-modal');
-    const clearCartButton = document.querySelector('.clear-cart');
-  
-    // Load saved cart items
-    loadCartFromStorage();
-  
-    cartIcon.addEventListener('click', () => {
-      console.log('Cart icon clicked');
-      
-      cartModal.classList.add('active');
-    });
-  
-    closeModal.addEventListener('click', () => {
-      cartModal.classList.remove('active');
-    });
-  
-    if (clearCartButton) {
-      clearCartButton.addEventListener('click', clearCart);
+document.querySelectorAll('.quantity-btn').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const productId = Number(e.currentTarget.dataset.id)
+    const item = cartItems.find((item) => item.id === productId)
+    if (item) {
+      const newQuantity = e.currentTarget.classList.contains('plus')
+        ? item.quantity + 1
+        : item.quantity - 1
+      updateQuantity(productId, newQuantity)
     }
-  
-    // Close modal when clicking outside
-    window.addEventListener('click', (e) => {
-      if (e.target === cartModal) {
-        cartModal.classList.remove('active');
-      }
-    });
+  })
+})
+
+//Funcion para actualizar el total del carrito
+const updateCartTotal = () => {
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  )
+  const cartTotal = document.querySelector('#cartTotal')
+  cartTotal.textContent = `$${total.toFixed(2)}`
+}
+
+// Funcion para limpiar el carrito
+export const clearCart = () => {
+  cartItems = []
+  savedCartToStorage()
+  updateCartUI()
+  updateCartTotal()
+}
+
+// Function to initialize cart modal
+export const initCart = () => {
+  const cartIcon = document.querySelector('.cart')
+  const cartModal = document.querySelector('.cart-modal')
+  const closeModal = document.querySelector('.close-modal')
+  const clearCartButton = document.querySelector('.clear-cart')
+
+  // carga de los items guardados en el local storage
+  loadCartFromStorage()
+
+  cartIcon.addEventListener('click', () => {
+    cartModal.classList.add('active')
+  })
+
+  closeModal.addEventListener('click', () => {
+    cartModal.classList.remove('active')
+  })
+
+  if (clearCartButton) {
+    clearCartButton.addEventListener('click', clearCart)
   }
+
+  // Cierre del modal cuando clickeen afuera
+  window.addEventListener('click', (e) => {
+    if (e.target === cartModal) {
+      cartModal.classList.remove('active')
+    }
+  })
+}

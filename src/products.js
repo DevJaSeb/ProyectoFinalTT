@@ -41,6 +41,9 @@ export const initProductsDetails = async () => {
 
 //CREACION DE CARDS
 export const createProductCard = (product) => {
+  //Detecta si estamos en index o products
+  const isIndex = window.location.pathname === '/index.html' || window.location.pathname === '/'
+  const productPath = isIndex ? "./pages/producto.html" : "./producto.html"
   const container = document.querySelector('.cards-container')
 
   //creamos la card
@@ -54,7 +57,7 @@ export const createProductCard = (product) => {
                 alt="${product.title}"
               />
             </div>
-            <p class="card-description"><a href="./pages/producto.html?id=${product.id}">Detalles</a></p>
+            <p class="card-description"><a href="${productPath}?id=${product.id}">Detalles</a></p>
             <div class="card-price">
               <p>$ ${product.price}</p>
               <button class="add-to-cart" data-id="${product.id}">Comprar</button>`
