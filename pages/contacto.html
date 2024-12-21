@@ -58,7 +58,7 @@
           <h2 class="form-title">Contactanos</h2>
           <p>Comuniquese y nos pondremos en contacto en 24 horas</p>
         </div>
-        <form action="https://formspree.io/f/mldejeok" method="post">
+        <form action="https://formspree.io/f/mldejeok" method="post" id="contact-form">
           <label for="name">Nombre</label>
           <input type="text" id="name" name="name" />
           <label for="email">Email</label>
@@ -121,5 +121,9 @@
         </section>
       </div>
     </footer>
+    <script type="module">
+      import {validateForm} from '../src/utils.js'
+      validateForm()
+    </script>
   </body>
 </html>
