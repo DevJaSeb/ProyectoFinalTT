@@ -160,6 +160,8 @@ export const initCart = () => {
     loadCartFromStorage();
   
     cartIcon.addEventListener('click', () => {
+      console.log("click en el carrito");
+      
       cartModal.classList.add('active');
     });
   
