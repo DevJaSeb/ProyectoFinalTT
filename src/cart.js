@@ -88,7 +88,7 @@ const updateCartUI = () => {
           ).toFixed(2)}</p>
         </div>
         <button class="remove-item" data-id="${item.id}">
-          <i class="fas fa-trash"></i>
+          <span class="iconify" data-icon="mdi:trash-can"></span>
         </button>
       `
     cartItemsContainer.appendChild(cartItem)
