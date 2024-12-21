@@ -2,7 +2,7 @@
 
 import { initCart } from './src/cart.js'
 import { bannerInit, initSearch } from './src/dom.js'
-import { createProductCard, initProducts, initProductsDetails } from './src/products.js'
+import { createProductCard} from './src/products.js'
 import { getAllProducts } from './src/requests.js'
 
 
