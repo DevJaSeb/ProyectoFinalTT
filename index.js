@@ -1,13 +1,24 @@
 //Punto de entrada para la aplicación
 
+import { initCart } from './src/cart.js'
 import { bannerInit, initSearch } from './src/dom.js'
-import { initProducts, initProductsDetails } from './src/products.js'
+import { createProductCard, initProducts, initProductsDetails } from './src/products.js'
+import { getAllProducts } from './src/requests.js'
 
 
-//iniciamos el banner
-document.addEventListener('DOMContentLoaded', bannerInit)
-document.addEventListener('DOMContentLoaded', initSearch)
-document.addEventListener('DOMContentLoaded', initProducts)
-document.addEventListener('DOMContentLoaded', initProductsDetails)
+const init = async () => {
+    try{
+        initCart()
+        await bannerInit()
+        initSearch()
+        const products = await getAllProducts();
+        const flatProducts = products.flat().filter(Boolean);
+        flatProducts.forEach(product => createProductCard(product))
+    }catch(error){
+        console.error('Error al Obtener los productos', error)
+    }
+}
+
+document.addEventListener('DOMContentLoaded', init)
 
 

@@ -36,7 +36,7 @@ export const initSearch = () => {
   const searchInput = document.querySelector('.search-input')
 
   //cambio de clase al hacer click en el icono de lupa
-  searchIcon.addEventListener('click', () => {
+  searchIcon.addEventListener('click', () => {    
     searchInput.classList.toggle('active')
     if (searchInput.classList.contains('active')) {
       searchInput.focus()
@@ -52,3 +52,10 @@ export const initSearch = () => {
     }
   })
 }
+
+//CARRO DE COMPRAS
+const cartIcon = document.querySelector('.cart');
+const cartModal = document.querySelector('.cart-modal');  
+const closeModal = document.querySelector('.close-modal');
+const cartItemsContainer = document.querySelector('.cart-items-container');
+const cartTotal = document.querySelector('#cartTotal');

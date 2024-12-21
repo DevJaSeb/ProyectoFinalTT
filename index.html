@@ -47,6 +47,7 @@
             class="iconify cart"
             data-icon="material-symbols:shopping-cart"
           ></span>
+          <span class="cart-count">0</span>
         </section>
       </nav>
     </header>
@@ -102,6 +103,28 @@
         </section>
       </div>
     </footer>
+    <!-- MODAL CARRITO -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-modal-content">
+        <div class="cart-modal-header">
+          <h2>Carrito de Compras</h2>
+          <span class="close-modal iconify" data-icon="material-symbols:close"
+            >&times;</span
+          >
+        </div>
+        <div class="cart-items-container">
+          <!-- Aquí se mostrarán los items del carrito -->
+        </div>
+        <div class="cart-modal-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="btn-checkout">Realizar Compra</button>
+          <button class="clear-cart">Vaciar Carrito</button>
+        </div>
+      </div>
+    </div>
     <script src="./index.js" type="module"></script>
   </body>
 </html>

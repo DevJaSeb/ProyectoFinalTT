@@ -1,7 +1,8 @@
 //Maneja la informacion de los productos
 
+import { addToCart } from './cart.js'
 import { getAllProducts, getProductsById } from './requests.js'
-import { createProductCard, flatArray, flatternArray } from './utils.js'
+import { flatternArray } from './utils.js'
 
 export const initProducts = async () => {
   try {
@@ -36,4 +37,32 @@ export const initProductsDetails = async () => {
   } catch (error) {
     console.error('Error al Obtener los productos', error)
   }
+}
+
+//CREACION DE CARDS
+export const createProductCard = (product) => {
+  const container = document.querySelector('.cards-container')
+
+  //creamos la card
+  const card = document.createElement('div')
+  card.classList.add('card')
+
+  card.innerHTML = `<p class="card-title">${product.title}</p>
+            <div class="img-container">
+              <img
+                src="${product.thumbnail}"
+                alt="${product.title}"
+              />
+            </div>
+            <p class="card-description"><a href="./pages/producto.html?id=${product.id}">Detalles</a></p>
+            <div class="card-price">
+              <p>$ ${product.price}</p>
+              <button class="add-to-cart" data-id="${product.id}">Comprar</button>`
+
+  const buyButton = card.querySelector('.add-to-cart')
+  buyButton.addEventListener('click', () => {
+    addToCart(product)
+    alert('Producto agregado al carrito')
+  })
+  return container.appendChild(card)
 }
