@@ -71,26 +71,9 @@
               <input type="text" placeholder="Max" />
             </div>
           </div>
-          <div class="checkbox-filter">
-            <p class="checkbox">Filtrar</p>
-            <div class="container-checkbox">
-              <input type="checkbox" name="new" id="new" value="new" />
-              <label for="new">Novedad</label>
-            </div>
-            <div class="container-checkbox">
-              <input type="checkbox" name="ofer" id="ofer" value="ofer" />
-              <label for="ofer">Oferta</label>
-            </div>
-            <div class="container-checkbox">
-              <input type="checkbox" name="desc" id="desc" value="desc" />
-              <label for="desc">Descuento</label>
-            </div>
-          </div>
         </aside>
         <!-- PRODUCTOS -->
-        <section class="cards-container">
-          
-        </section>
+        <section class="cards-container"></section>
       </div>
       <!-- PAGINATION -->
       <div class="pagination-container">
@@ -139,19 +122,23 @@
       </div>
     </footer>
     <script type="module">
+      import { getAllProducts } from '../src/requests.js'
+      import { createProductCard } from '../src/products.js'
+      import { initCart } from '../src/cart.js'
+      import { insertCartHtml } from '../src/utils.js'
+      import { renderProducts, setupFilterListeners } from '../src/utils.js'
 
-      import { getAllProducts } from '../src/requests.js';
-      import { createProductCard } from '../src/products.js';
-      import { initCart } from '../src/cart.js';
-      import { insertCartHtml } from '../src/utils.js';
+      let allProducts = []
+
       const initProducts = async () => {
-        try{
+        try {
           const products = await getAllProducts()
-          const flatProducts = products.flat().filter(Boolean);
-          flatProducts.forEach( product => createProductCard(product))
+          const flatProducts = products.flat().filter(Boolean)
+          renderProducts(flatProducts)
+          setupFilterListeners(flatProducts)
           insertCartHtml()
           initCart()
-        }catch(error){
+        } catch (error) {
           console.error('Error al Obtener los productos', error)
         }
       }
