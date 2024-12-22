@@ -34,6 +34,37 @@ export const initProductsDetails = async () => {
       product.description
     document.querySelector('.product-price').textContent = `$ ${product.price}`
     document.querySelector('.img-container img').src = product.images[0]
+
+    // Obtener referencias a los elementos del contador y botón de añadir
+    const countDisplay = document.querySelector('.number')
+    const buttonUp = document.querySelector('.button-up')
+    const buttonDown = document.querySelector('.button-down')
+    const addToCartButton = document.querySelector('.add-to-cart')
+    let quantity = 1 // Cantidad inicial
+
+    // Manejar incremento de cantidad
+    buttonUp.addEventListener('click', () => {
+      quantity++
+      countDisplay.textContent = quantity
+    })
+
+    // Manejar decremento de cantidad
+    buttonDown.addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--
+        countDisplay.textContent = quantity
+      }
+    })
+
+    // Manejar añadir al carrito
+    addToCartButton.addEventListener('click', () => {
+      const productToAdd = {
+        ...product,
+        quantity: quantity,
+      }
+      addToCart(productToAdd)
+      alert('Producto agregado al carrito')
+    })
   } catch (error) {
     console.error('Error al Obtener los productos', error)
   }
@@ -42,8 +73,10 @@ export const initProductsDetails = async () => {
 //CREACION DE CARDS
 export const createProductCard = (product) => {
   //Detecta si estamos en index o products
-  const isIndex = window.location.pathname === '/index.html' || window.location.pathname === '/'
-  const productPath = isIndex ? "./pages/producto.html" : "./producto.html"
+  const isIndex =
+    window.location.pathname === '/index.html' ||
+    window.location.pathname === '/'
+  const productPath = isIndex ? './pages/producto.html' : './producto.html'
   const container = document.querySelector('.cards-container')
 
   //creamos la card

@@ -23,11 +23,11 @@ const savedCartToStorage = () => {
 export const addToCart = (product) => {
   const existingItem = cartItems.find((item) => item.id === product.id)
   if (existingItem) {
-    existingItem.quantity += 1
+    eexistingItem.quantity += product.quantity || 1;
   } else {
     cartItems.push({
       ...product,
-      quantity: 1,
+      quantity: product.quantity || 1
     })
   }
 
@@ -153,15 +153,31 @@ export const clearCart = () => {
   updateCartTotal()
 }
 
-// Function to initialize cart modal
+// Funcion para inicializar el carrito
 export const initCart = () => {
   const cartIcon = document.querySelector('.cart')
-  const cartModal = document.querySelector('.cart-modal')
+  const cartModal = document.querySelector('#cartModal')
   const closeModal = document.querySelector('.close-modal')
   const clearCartButton = document.querySelector('.clear-cart')
 
   // carga de los items guardados en el local storage
   loadCartFromStorage()
+
+  if (cartIcon && cartModal) {  
+    cartIcon.addEventListener('click', () => {
+      cartModal.classList.add('active');
+    });
+  }
+
+  if (closeModal) {  
+    closeModal.addEventListener('click', () => {
+      cartModal.classList.remove('active');
+    });
+  }
+
+  if (clearCartButton) {
+    clearCartButton.addEventListener('click', clearCart);
+  }
 
   cartIcon.addEventListener('click', () => {
     cartModal.classList.add('active')

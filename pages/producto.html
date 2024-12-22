@@ -115,15 +115,15 @@
       </div>
     </footer>
     <script type="module">
-      import { initProductsDetails } from '../src/products.js';
-      import { initCart } from '../src/cart.js';
-      import { insertCartHtml } from '../src/utils.js';
+      import { initProductsDetails } from '../src/products.js'
+      import { initCart } from '../src/cart.js'
+      import { insertCartHtml } from '../src/utils.js'
 
-      document.addEventListener('DOMContentLoaded',() => {
-        initProductsDetails();        
+      document.addEventListener('DOMContentLoaded', () => {
         insertCartHtml()
         initCart()
-      });
-  </script>
+        initProductsDetails()
+      })
+    </script>
   </body>
 </html>
