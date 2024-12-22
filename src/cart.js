@@ -23,7 +23,7 @@ const savedCartToStorage = () => {
 export const addToCart = (product) => {
   const existingItem = cartItems.find((item) => item.id === product.id)
   if (existingItem) {
-    eexistingItem.quantity += product.quantity || 1;
+    existingItem.quantity += product.quantity || 1;
   } else {
     cartItems.push({
       ...product,
@@ -159,6 +159,7 @@ export const initCart = () => {
   const cartModal = document.querySelector('#cartModal')
   const closeModal = document.querySelector('.close-modal')
   const clearCartButton = document.querySelector('.clear-cart')
+  const checkoutButton = document.querySelector('.checkout-btn');
 
   // carga de los items guardados en el local storage
   loadCartFromStorage()
@@ -191,10 +192,74 @@ export const initCart = () => {
     clearCartButton.addEventListener('click', clearCart)
   }
 
+  
+  if (checkoutButton) {
+    checkoutButton.addEventListener('click', processCheckout);
+  }
+
   // Cierre del modal cuando clickeen afuera
   window.addEventListener('click', (e) => {
     if (e.target === cartModal) {
       cartModal.classList.remove('active')
     }
   })
+  
+}
+
+
+//Compra realizada
+export const processCheckout = () => {
+  // Verificar si hay productos en el carrito
+  if (cartItems.length === 0) {
+    alert('El carrito está vacío');
+    return;
+  }
+
+  // Crear el modal de compra exitosa
+  createCheckoutModal();
+  
+  // Limpiar el carrito después de la compra
+  clearCart();
+}
+
+function createCheckoutModal() {
+  // Crear el contenedor del modal
+  const modalOverlay = document.createElement('div');
+  modalOverlay.classList.add('checkout-modal-overlay');
+  
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('checkout-modal');
+  
+  modalContent.innerHTML = `
+    <div class="checkout-modal-content">
+      <span class="checkout-modal-close">&times;</span>
+      <div class="checkout-modal-icon">
+        <span class="iconify" data-icon="mdi:check-circle"></span>
+      </div>
+      <h2>¡Compra Realizada con Éxito!</h2>
+      <p>Gracias por tu compra. Pronto recibirás los detalles de tu pedido.</p>
+      <button class="checkout-modal-close-btn">Cerrar</button>
+    </div>
+  `;
+
+  // Añadir al body
+  document.body.appendChild(modalOverlay);
+  modalOverlay.appendChild(modalContent);
+
+  // Eventos de cierre
+  const closeButtons = modalContent.querySelectorAll('.checkout-modal-close, .checkout-modal-close-btn');
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.body.removeChild(modalOverlay);
+    });
+  });
+
+  // Cerrar al hacer click fuera del modal
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      document.body.removeChild(modalOverlay);
+    }
+  });
+
+  return modalOverlay;
 }
